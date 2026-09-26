@@ -118,3 +118,70 @@ zhy@zhy-VMware-Virtual-Platform:~$ nvcc --version
 sudo apt install nvidia-cuda-toolkit
 
 ## 2. Python Project A
+### 2.1 环境创建与激活
+
+Project A 要求 Python >= 3.9, < 3.11，本项目使用 Conda 创建 Python 3.10 环境。
+
+实际执行：
+
+bash
+conda create -n rc_vision_a python=3.10 -y
+conda activate rc_vision_a 
+
+### 2.2 version
+(rc_vision_a) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_A$ python --version
+which python
+Python 3.10.21
+/home/zhy/miniconda3/envs/rc_vision_a/bin/python
+
+### 2.3安装依赖
+依赖安装
+
+进入 Project A：
+
+cd ~/ROBOCON-Vision-Assignment-1/python_A
+
+安装项目依赖：
+
+pip install -r requirements.txt
+
+由于本项目使用 Intel RealSense D435i 摄像头，额外安装 RealSense Python SDK：
+
+pip install pyrealsense2
+
+检查安装：
+
+python -c "import pyrealsense2; print('RealSense Python OK')"
+
+输出：
+
+RealSense Python OK
+### 2.4运行
+
+实际运行：
+
+cd ~/ROBOCON-Vision-Assignment-1/python_A
+conda activate rc_vision_a
+python camera.py
+
+## 3. Process Observation
+
+(base) zhy@zhy-VMware-Virtual-Platform:~$ ps -p 11886 -o pid,ppid,cmd,%cpu,%mem,etime
+    PID    PPID CMD                         %CPU %MEM     ELAPSED
+  11886    9906 python camera.py             6.7  1.0       00:34
+
+(base) zhy@zhy-VMware-Virtual-Platform:~$ htop
+
+## 4. Python Project B
+
+(base) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ conda create -n rc_vision_b python=3.12 -y
+(base) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ conda activate rc_vision_b
+
+(rc_vision_b) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ python --version
+Python 3.12.14
+(rc_vision_b) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ which python
+/home/zhy/miniconda3/envs/rc_vision_b/bin/python
+
+(rc_vision_b) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ pip install -r requirements.txt
+(rc_vision_b) zhy@zhy-VMware-Virtual-Platform:~/ROBOCON-Vision-Assignment-1/python_B$ python -c "import numpy, imageio, imageio_ffmpeg, skimage; print('Project B dependencies OK')"
+Project B dependencies OK
