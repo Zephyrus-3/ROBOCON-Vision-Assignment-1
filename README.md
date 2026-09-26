@@ -103,6 +103,9 @@ nvcc --version
 ---
 
 ## 2. Python Project A
+### 运行截图
+
+<img src="./python_A/3-model.png" alt="Project A 运行截图" width="800">
 
 ### 2.1 环境创建与激活
 
@@ -174,6 +177,11 @@ Project A 使用 Intel RealSense D435i 摄像头持续采集视频，并输出�
 ---
 
 ## 3. Process Observation
+
+### htop 进程观察截图
+
+<img src="./htop_project_a.png" alt="htop 进程观察截图" width="1000">
+
 
 Project A 运行期间，在另一个终端使用 `ps` 对进程进行观察。
 
