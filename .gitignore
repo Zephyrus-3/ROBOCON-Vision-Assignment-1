@@ -1,0 +1,5 @@
+cpp/build/
+.vscode/
+__pycache__/
+*.pyc
+.venv/
